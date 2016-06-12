@@ -58,7 +58,7 @@ try
     {
         throw "You don't have enough money!";
     };
-    _respectChange = _clientRespect * (_respectPercentage / 100);
+    _respectChange = round(_clientRespect * (_respectPercentage / 100));
     _newClientMoney = _clientMoney - _moneyAmount;
     if (_respectChange < 0) then
     {
