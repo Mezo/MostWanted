@@ -54,6 +54,6 @@ A note on exploiting. A lot of time and effort went into making sure exploiting 
 
 To properly report these:
 
-1. Private message (Taylor Swift)[http://www.exilemod.com/profile/472-taylor-swift/] or (WolfkillArcadia)[http://www.exilemod.com/profile/12063-wolfkillarcadia/]
+1. Private message [Taylor Swift](http://www.exilemod.com/profile/472-taylor-swift/) or [WolfkillArcadia](http://www.exilemod.com/profile/12063-wolfkillarcadia/)
 2. Include, in detail, how to replicate the exploit, providing step by step instructions.
 3. We will look into the proper way, if any, to keep it from happening. ArmA will be ArmA in some cases.
