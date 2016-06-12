@@ -19,7 +19,7 @@
 
 #### Client
 1. Copy `MostWanted_Client` folder into the root of your `exile.MAPNAME` mission folder.
-2. In your `init.sqf` or `initPlayerLocal.sqf`, add `[] execVM "MarXet\MarXet_Init.sqf";`
+2. In your `init.sqf` or `initPlayerLocal.sqf`, add `[] execVM "MostWanted_Client\MostWanted_Init.sqf";`
 3. In your `description.ext`, add
 
             #include "MostWanted_Client\Dialog\MostWantedDefines.hpp"
@@ -35,16 +35,33 @@
 
     If you don't have `class CfgHints` or `class CfgNetworkMessages`, in your `config.cpp`, add this anywhere.
 
-           class CfgHints
-           {
-                #include "MostWanted_Client\Notifications.hpp"
-           };
+        class CfgHints
+        {
+            #include "MostWanted_Client\Notifications.hpp"
+        };
 
-           class CfgNetworkMessages
-           {
-                #include "MostWanted_Client\NetworkMessages.hpp"
-           };
-6. You are done! Head on down to configuration.
+        class CfgNetworkMessages
+        {
+            #include "MostWanted_Client\NetworkMessages.hpp"
+        };
+6. In `config.cpp`, inside the `class CfgInteractionMenus` add:
+
+        class Bounties
+        {
+            targetType = 2;
+            target = "Exile_Trader_Office";
+
+            class Actions
+            {
+                class MostWanted: ExileAbstractAction
+                {
+                    title = "Most Wanted";
+                    condition = "true";
+                    action = "createDialog 'MostWantedDialog';";
+                };
+            };
+        };
+7. You are done! Head on down to configuration.
 
 ### Configuration
 Most Wanted has a few configuration options, they are inside `MostWanted_Client\CfgMostWanted.hpp`, please review these as that they control the functionality.
