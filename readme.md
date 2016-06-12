@@ -53,6 +53,7 @@ Most Wanted has a few configuration options, they are inside `MostWanted_Client\
 A note on exploiting. A lot of time and effort went into making sure exploiting was difficult and a pain in the ass to do with this script. If you find an exploit or notice players finding exploits, **DO NOT POST THEM ON THE EXILE FORUMS OR IN THE TOPIC COMMENTS**.
 
 To properly report these:
+
 1. Private message (Taylor Swift)[http://www.exilemod.com/profile/472-taylor-swift/] or (WolfkillArcadia)[http://www.exilemod.com/profile/12063-wolfkillarcadia/]
 2. Include, in detail, how to replicate the exploit, providing step by step instructions.
 3. We will look into the proper way, if any, to keep it from happening. ArmA will be ArmA in some cases.
