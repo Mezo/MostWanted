@@ -24,7 +24,7 @@
 
             #include "MostWanted_Client\Dialog\MostWantedDefines.hpp"
             #include "MostWanted_Client\Dialog\MostWantedDialog.hpp"
-4. In your `config.cpp`, add at the top, `#include "MostWanted_Client\CfgMostWanted.hpp"`
+4. In your `config.cpp`, add at the top, `#include "MostWanted_Client\CfgMostWanted.cpp"`
 5. `Notifications.hpp` and `NetworkMessages.hpp` both will depend on your set up.
 
     If you **ALREADY** have `class CfgHints` or `class CfgNetworkMessages` **ANYWHERE** in your `description.ext` or `config.cpp` in your exile.MAPNAME folder:
