@@ -68,6 +68,7 @@
         ExileServer_object_player_database_load = "MostWanted_Client\overwrites\ExileServer_object_player_database_load.sqf";
         ExileServer_object_player_event_onMpKilled = "MostWanted_Client\overwrites\ExileServer_object_player_event_onMpKilled.sqf";
         ExileServer_system_network_event_onPlayerConnected = "MostWanted_Client\overwrites\ExileServer_system_network_event_onPlayerConnected.sqf";
+        ExileServer_system_network_dispatchIncomingMessage = "MostWanted_Client\overwrites\ExileServer_system_network_dispatchIncomingMessage.sqf";
 
     1. If you already have overwrites for these files, make sure to merge them.
 
