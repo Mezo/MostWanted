@@ -61,7 +61,7 @@
                 };
             };
         };
-7. In `config.cpp`, incside the `class CfgExileCustomCode` add:
+7. In `config.cpp`, inside the `class CfgExileCustomCode` add:
 
         ExileClient_gui_xm8_showPartySlides = "MostWanted_Client\overwrites\ExileClient_gui_xm8_showPartySlides.sqf";
         ExileServer_object_player_createBambi = "MostWanted_Client\overwrites\ExileServer_object_player_createBambi.sqf";
