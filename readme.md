@@ -61,7 +61,17 @@
                 };
             };
         };
-7. You are done! Head on down to configuration.
+7. In `config.cpp`, incside the `class CfgExileCustomCode` add:
+
+        ExileClient_gui_xm8_showPartySlides = "MostWanted_Client\overwrites\ExileClient_gui_xm8_showPartySlides.sqf";
+        ExileServer_object_player_createBambi = "MostWanted_Client\overwrites\ExileServer_object_player_createBambi.sqf";
+        ExileServer_object_player_database_load = "MostWanted_Client\overwrites\ExileServer_object_player_database_load.sqf";
+        ExileServer_object_player_event_onMpKilled = "MostWanted_Client\overwrites\ExileServer_object_player_event_onMpKilled.sqf";
+        ExileServer_system_network_event_onPlayerConnected = "MostWanted_Client\overwrites\ExileServer_system_network_event_onPlayerConnected.sqf";
+
+    1. If you already have overwrites for these files, make sure to merge them.
+
+8. You are done! Head on down to configuration.
 
 ### Configuration
 Most Wanted has a few configuration options, they are inside `MostWanted_Client\CfgMostWanted.hpp`, please review these as that they control the functionality.
