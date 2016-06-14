@@ -75,7 +75,7 @@
 8. You are done! Head on down to configuration.
 
 ### Configuration
-Most Wanted has a few configuration options, they are inside `MostWanted_Client\CfgMostWanted.hpp`, please review these as that they control the functionality.
+Most Wanted has a few configuration options, they are inside `MostWanted_Client\CfgMostWanted.hpp`, please review these as they control the functionality.
 
 ### SERVER OWNERS, PLEASE READ
 A note on exploiting. A lot of time and effort went into making sure exploiting was difficult and a pain in the ass to do with this script. If you find an exploit or notice players finding exploits, **DO NOT POST THEM ON THE EXILE FORUMS OR IN THE TOPIC COMMENTS**.
