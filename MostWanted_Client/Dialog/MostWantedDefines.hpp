@@ -97,7 +97,7 @@
 /// Base Classes
 ///////////////////////////////////////////////////////////////////////////
 class RscActiveText;
-class RscText
+class MwRscText: RscText
 {
 	deletable = 0;
 	fade = 0;
@@ -158,7 +158,7 @@ class RscText
 		0.65
 	};
 };
-class RscStructuredText
+class MwRscStructuredText: RscStructuredText
 {
 	deletable = 0;
 	fade = 0;
@@ -189,7 +189,7 @@ class RscStructuredText
 	size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	shadow = 1;
 };
-class RscPicture
+class MwRscPicture: RscPicture
 {
 	deletable = 0;
 	fade = 0;
@@ -243,7 +243,7 @@ class RscPicture
 		0.65
 	};
 };
-class RscEdit
+class MwRscEdit: RscEdit
 {
 	deletable = 0;
 	fade = 0;
@@ -311,7 +311,7 @@ class RscEdit
 		0.65
 	};
 };
-class RscCombo
+class MwRscCombo: RscCombo
 {
 	deletable = 0;
 	fade = 0;
@@ -491,7 +491,7 @@ class RscCombo
 		1
 	};
 };
-class RscListBox
+class MwRscListBox: RscListBox
 {
 	deletable = 0;
 	fade = 0;
@@ -678,7 +678,7 @@ class RscListBox
 	period = 1.2;
 	maxHistoryDelay = 1;
 };
-class RscButton
+class MwRscButton: RscButton
 {
 	deletable = 0;
 	fade = 0;
@@ -780,7 +780,7 @@ class RscButton
 	offsetPressedY = 0;
 	borderSize = 0;
 };
-class RscShortcutButton
+class MwRscShortcutButton: RscShortcutButton
 {
 	deletable = 0;
 	fade = 0;
@@ -950,7 +950,7 @@ class RscShortcutButton
 		align = "left";
 	};
 };
-class RscShortcutButtonMain
+class MwRscShortcutButtonMain: RscShortcutButtonMain
 {
 	idc = -1;
 	style = 0;
@@ -1018,7 +1018,7 @@ class RscShortcutButtonMain
 		align = "false";
 	};
 };
-class RscFrame
+class MwRscFrame: RscFrame
 {
 	type = 0;
 	idc = -1;
@@ -1046,7 +1046,7 @@ class RscFrame
 	w = 0.3;
 	h = 0.3;
 };
-class RscSlider
+class MwRscSlider: RscSlider
 {
 	deletable = 0;
 	fade = 0;
@@ -1073,7 +1073,7 @@ class RscSlider
 	w = 0.3;
 	h = 0.025;
 };
-class IGUIBack
+class MwIGUIBack: IGUIBack
 {
 	type = 0;
 	idc = 124;
@@ -1101,7 +1101,7 @@ class IGUIBack
 		"(profilenamespace getvariable ['IGUI_BCG_RGB_A',0.8])"
 	};
 };
-class RscCheckBox
+class MwRscCheckBox: RscCheckBox
 {
 	idc = -1;
 	type = 77;
@@ -1237,7 +1237,7 @@ class RscCheckBox
 		1
 	};
 };
-class RscTextCheckBox
+class MwRscTextCheckBox: RscTextCheckBox
 {
 	idc = -1;
 	type = 7;
@@ -1336,7 +1336,7 @@ class RscTextCheckBox
 		"CHECKED"
 	};
 };
-class RscButtonMenu
+class MwRscButtonMenu: RscButtonMenu
 {
 	idc = -1;
 	type = 16;
@@ -1512,7 +1512,7 @@ class RscButtonMenu
 		1
 	};
 };
-class RscButtonMenuOK
+class MwRscButtonMenuOK: RscButtonMenuOK
 {
 	idc = 1;
 	shortcuts[] =

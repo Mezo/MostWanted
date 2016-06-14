@@ -5,7 +5,7 @@ class MostWantedDialog
 	onUnload = "uiNamespace setVariable ['MostWantedDialog', displayNull]; false call ExileClient_gui_postProcessing_toggleDialogBackgroundBlur;";
 	class Controls
 	{
-		class MWDialogBackgroundRight: RscText
+		class MWDialogBackgroundRight: MwRscText
 		{
 			idc = 1002;
 
@@ -16,7 +16,7 @@ class MostWantedDialog
 			colorBackground[] = {0.05,0.05,0.05,0.7};
 		};
 
-		class MWDialogCaptionRight: RscText
+		class MWDialogCaptionRight: MwRscText
 		{
 			idc = 1003;
 
@@ -28,7 +28,7 @@ class MostWantedDialog
 			colorBackground[] = {0.1,0.1,0.1,1};
 		};
 
-		class MWPlayerListBox: RscListBox
+		class MWPlayerListBox: MwRscListBox
 		{
 			idc = 1500;
 
@@ -38,7 +38,7 @@ class MostWantedDialog
 			h = 0.385 * safezoneH;
 		};
 
-		class MWBountyDropdown: RscCombo
+		class MWBountyDropdown: MwRscCombo
 		{
 			idc = 2101;
 
@@ -48,7 +48,7 @@ class MostWantedDialog
 			h = 0.0188079 * safezoneH;
 		};
 
-		class MWBountyLabel: RscText
+		class MWBountyLabel: MwRscText
 		{
 			idc = 1005;
 
@@ -59,7 +59,7 @@ class MostWantedDialog
 			h = 0.0188079 * safezoneH;
 		};
 
-		class MWAddBountyButton: RscButtonMenu
+		class MWAddBountyButton: MwRscButtonMenu
 		{
 			idc = 2400;
 			textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
@@ -78,7 +78,7 @@ class MostWantedDialog
 			h = 0.022 * safezoneH;
 		};
 
-		class MWPlayerLabel: RscText
+		class MWPlayerLabel: MwRscText
 		{
 			idc = 1009;
 
@@ -89,7 +89,7 @@ class MostWantedDialog
 			h = 0.0188079 * safezoneH;
 		};
 
-		class MWViewBountyBtn: RscButtonMenu
+		class MWViewBountyBtn: MwRscButtonMenu
 		{
 			idc = 2401;
 			textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
@@ -108,7 +108,7 @@ class MostWantedDialog
 			h = 0.022 * safezoneH;
 		};
 
-		class MWSetBountyBtn: RscButtonMenu
+		class MWSetBountyBtn: MwRscButtonMenu
 		{
 			idc = 2402;
 			textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
@@ -127,7 +127,7 @@ class MostWantedDialog
 			h = 0.022 * safezoneH;
 		};
 
-		class MWOpenContractsBtn: RscButtonMenu
+		class MWOpenContractsBtn: MwRscButtonMenu
 		{
 			idc = 2403;
 			textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
@@ -156,7 +156,7 @@ class MostWantedDialog
 			h = 0.385 * safezoneH;
 		};
 
-		class MWAcceptBountyButton: RscButtonMenu
+		class MWAcceptBountyButton: MwRscButtonMenu
 		{
 			idc = 2404;
 			textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
@@ -175,7 +175,7 @@ class MostWantedDialog
 			h = 0.022 * safezoneH;
 		};
 
-		class MWBountiesLabel: RscText
+		class MWBountiesLabel: MwRscText
 		{
 			idc = 1007;
 
@@ -186,7 +186,7 @@ class MostWantedDialog
 			h = 0.0188079 * safezoneH;
 		};
 
-		class MWCompletedContractsLabel: RscText
+		class MWCompletedContractsLabel: MwRscText
 		{
 			idc = 1008;
 
@@ -197,7 +197,7 @@ class MostWantedDialog
 			h = 0.022 * safezoneH;
 		};
 
-		class MWClaimContractsBtn: RscButtonMenu
+		class MWClaimContractsBtn: MwRscButtonMenu
 		{
 			idc = 2407;
 			textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
@@ -245,7 +245,7 @@ class MostWantedDialog
 			h = 0.099 * safezoneH;
 		};
 
-		class MWRscButtonMenu_2400: RscButtonMenu
+		class MWRscButtonMenu_2400: MwRscButtonMenu
 		{
 			idc = 2408;
 			textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
@@ -263,7 +263,7 @@ class MostWantedDialog
 			w = 0.0928125 * safezoneW;
 			h = 0.022 * safezoneH;
 		};
-		class MWMoneyRespectText: RscStructuredText
+		class MWMoneyRespectText: MwRscStructuredText
 		{
 			idc = 2501;
 			text = "0"; //--- ToDo: Localize;
