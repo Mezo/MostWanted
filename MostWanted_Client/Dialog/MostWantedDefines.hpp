@@ -97,7 +97,7 @@
 /// Base Classes
 ///////////////////////////////////////////////////////////////////////////
 class RscActiveText;
-class MwRscText: RscText
+class MwRscText
 {
 	deletable = 0;
 	fade = 0;
@@ -158,7 +158,7 @@ class MwRscText: RscText
 		0.65
 	};
 };
-class MwRscStructuredText: RscStructuredText
+class MwRscStructuredText
 {
 	deletable = 0;
 	fade = 0;
@@ -189,7 +189,7 @@ class MwRscStructuredText: RscStructuredText
 	size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
 	shadow = 1;
 };
-class MwRscPicture: RscPicture
+class MwRscPicture
 {
 	deletable = 0;
 	fade = 0;
@@ -243,7 +243,7 @@ class MwRscPicture: RscPicture
 		0.65
 	};
 };
-class MwRscEdit: RscEdit
+class MwRscEdit
 {
 	deletable = 0;
 	fade = 0;
@@ -311,7 +311,7 @@ class MwRscEdit: RscEdit
 		0.65
 	};
 };
-class MwRscCombo: RscCombo
+class MwRscCombo
 {
 	deletable = 0;
 	fade = 0;
@@ -491,7 +491,7 @@ class MwRscCombo: RscCombo
 		1
 	};
 };
-class MwRscListBox: RscListBox
+class MwRscListBox
 {
 	deletable = 0;
 	fade = 0;
@@ -678,7 +678,7 @@ class MwRscListBox: RscListBox
 	period = 1.2;
 	maxHistoryDelay = 1;
 };
-class MwRscButton: RscButton
+class MwRscButton
 {
 	deletable = 0;
 	fade = 0;
@@ -780,7 +780,7 @@ class MwRscButton: RscButton
 	offsetPressedY = 0;
 	borderSize = 0;
 };
-class MwRscShortcutButton: RscShortcutButton
+class MwRscShortcutButton
 {
 	deletable = 0;
 	fade = 0;
@@ -950,7 +950,7 @@ class MwRscShortcutButton: RscShortcutButton
 		align = "left";
 	};
 };
-class MwRscShortcutButtonMain: RscShortcutButtonMain
+class MwRscShortcutButtonMain
 {
 	idc = -1;
 	style = 0;
@@ -1018,7 +1018,7 @@ class MwRscShortcutButtonMain: RscShortcutButtonMain
 		align = "false";
 	};
 };
-class MwRscFrame: RscFrame
+class MwRscFrame
 {
 	type = 0;
 	idc = -1;
@@ -1046,7 +1046,7 @@ class MwRscFrame: RscFrame
 	w = 0.3;
 	h = 0.3;
 };
-class MwRscSlider: RscSlider
+class MwRscSlider
 {
 	deletable = 0;
 	fade = 0;
@@ -1073,7 +1073,7 @@ class MwRscSlider: RscSlider
 	w = 0.3;
 	h = 0.025;
 };
-class MwIGUIBack: IGUIBack
+class MwIGUIBack
 {
 	type = 0;
 	idc = 124;
@@ -1101,7 +1101,7 @@ class MwIGUIBack: IGUIBack
 		"(profilenamespace getvariable ['IGUI_BCG_RGB_A',0.8])"
 	};
 };
-class MwRscCheckBox: RscCheckBox
+class MwRscCheckBox
 {
 	idc = -1;
 	type = 77;
@@ -1237,7 +1237,7 @@ class MwRscCheckBox: RscCheckBox
 		1
 	};
 };
-class MwRscTextCheckBox: RscTextCheckBox
+class MwRscTextCheckBox
 {
 	idc = -1;
 	type = 7;
@@ -1336,7 +1336,7 @@ class MwRscTextCheckBox: RscTextCheckBox
 		"CHECKED"
 	};
 };
-class MwRscButtonMenu: RscButtonMenu
+class MwRscButtonMenu
 {
 	idc = -1;
 	type = 16;
@@ -1512,7 +1512,7 @@ class MwRscButtonMenu: RscButtonMenu
 		1
 	};
 };
-class MwRscButtonMenuOK: RscButtonMenuOK
+class MwRscButtonMenuOK
 {
 	idc = 1;
 	shortcuts[] =
@@ -1531,7 +1531,7 @@ class MwRscButtonMenuOK: RscButtonMenuOK
 		1
 	};
 };
-class RscButtonMenuCancel
+class MwRscButtonMenuCancel
 {
 	idc = 2;
 	shortcuts[] =
@@ -1540,7 +1540,7 @@ class RscButtonMenuCancel
 	};
 	text = "Cancel";
 };
-class RscControlsGroup
+class MwRscControlsGroup
 {
 	deletable = 0;
 	fade = 0;
@@ -1580,7 +1580,7 @@ class RscControlsGroup
 	style = 16;
 };
 
-class RscExileItemListBox: RscListBox
+class RscExileItemListBox: MwRscListBox
 {
 	sizeEx = "0.8 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 	sizeEx2 = "0.8 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";

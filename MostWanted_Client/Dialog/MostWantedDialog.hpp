@@ -225,7 +225,7 @@ class MostWantedDialog
 			h = 0.242 * safezoneH;
 		};
 
-		class MWRscText_1003: RscText
+		class MWRscText_1003: MwRscText
 		{
 			idc = 1006;
 
