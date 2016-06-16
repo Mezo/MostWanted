@@ -18,3 +18,4 @@ lbClear _pricelist;
     _lbentry = _pricelist lbAdd format["%1 | %2%3",_price,_respect,"%"];
     _data = _pricelist lbSetData [_lbentry, (format["%1:%2",_price,_respect])];
 } foreach _values;
+lbSetCurSel [2101, 0];
