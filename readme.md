@@ -33,7 +33,7 @@
 
     Add `#include "MostWanted_Client\Notifications.hpp` in `class CfgHints` so it looks kind of like what is below.
 
-    If you don't have `class CfgHints` or `class CfgNetworkMessages`, in your `config.cpp`, add this anywhere.
+    If you don't have `class CfgHints` or `class CfgNetworkMessages`, in your `config.cpp`, add this at the top. 
 
         class CfgHints
         {
