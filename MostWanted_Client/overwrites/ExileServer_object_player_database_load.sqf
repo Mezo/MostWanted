@@ -9,7 +9,7 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
 
-private["_data","_oldPlayerObject","_playerUID","_sessionID","_position","_direction","_player","_clanID","_clanName","_devFriendlyMode","_devs","_headgear","_goggles","_binocular","_primaryWeapon","_handgunWeapon","_secondaryWeapon","_currentWeapon","_uniform","_vest","_backpack","_uniformContainer","_vestContainer","_backpackContainer","_assignedItems"];
+private["_data","_oldPlayerObject","_playerUID","_sessionID","_position","_direction","_player","_clanID","_clanName","_clanData","_clanGroup","_devFriendlyMode","_devs","_requestingPlayer","_bambiPlayer","_headgear","_goggles","_binocular","_primaryWeapon","_handgunWeapon","_secondaryWeapon","_currentWeapon","_uniform","_vest","_backpack","_uniformContainer","_vestContainer","_backpackContainer","_assignedItems"];
 _data = _this select 0;
 _oldPlayerObject = _this select 1;
 _playerUID = _this select 2;
@@ -17,7 +17,7 @@ _sessionID = _this select 3;
 _name = name _oldPlayerObject;
 _position = [_data select 11, _data select 12, _data select 13];
 _direction = _data select 10;
-_group = createGroup independent;
+_group = call ExileServer_system_group_getOrCreateLoneWolfGroup;
 _player = _group createUnit ["Exile_Unit_Player", _position, [], 0, "CAN_COLLIDE"];
 _player setDir _direction;
 _player setPosATL _position;
@@ -31,37 +31,32 @@ _clanName = (_data select 43);
 if !((typeName _clanID) isEqualTo "SCALAR") then
 {
 	_clanID = -1;
-	_clanName = "";
+	_clanData = [];
+}
+else
+{
+	_clanData = missionnamespace getVariable [format ["ExileServer_clan_%1",_clanID],[]];
+	if(isNull (_clanData select 5))then
+	{
+		_clanGroup = createGroup independent;
+		_clanData set [5,_clanGroup];
+		_clanGroup setGroupIdGlobal [_clanData select 0];
+		missionNameSpace setVariable [format ["ExileServer_clan_%1",_clanID],_clanData];
+	}
+	else
+	{
+		_clanGroup = (_clanData select 5);
+	};
+	[_player] joinSilent _clanGroup;
 };
 _player setDamage (_data select 3);
 _player setName _name;
-
-// Most-Wanted
-private ["_bounty","_lock","_interval","_type","_immunity"];
-
-_interval = getNumber(missionConfigFile >> "CfgMostWanted" >> "Database" >> "Immunity" >> "interval");
-_immunity = format ["hasImmunity:%1:%2",_playerUID,_interval] call ExileServer_system_database_query_selectSingleField;
-_player setVariable ["ExileBountyImmunity", _immunity, true];
-
-_bounty = format["getBounty:%1",_playerUID] call ExileServer_system_database_query_selectSingle;
-_player setVariable ["ExileBounty",_bounty select 0];
-_lock = false;
-if ((_bounty select 1) isEqualTo 1) then
-{
-	_lock = true;
-};
-_player setVariable ["ExileBountyLock",_lock,true];
-_player setVariable ["ExileBountyContract",_bounty select 2,true];
-_player setVariable ["ExileBountyCompletedContracts",_bounty select 3];
-_player setVariable ["ExileBountyFriends",_bounty select 4,true];
-// Most-Wanted
-
-_player setVariable ["ExileMoney", (_data select 38)];
+_player setVariable ["ExileMoney", (_data select 38), true];
 _player setVariable ["ExileScore", (_data select 39)];
 _player setVariable ["ExileKills", (_data select 40)];
 _player setVariable ["ExileDeaths", (_data select 41)];
 _player setVariable ["ExileClanID", _clanID];
-_player setVariable ["ExileClanName", _clanName];
+_player setVariable ["ExileClanData", _clanData];
 _player setVariable ["ExileName", _name];
 _player setVariable ["ExileOwnerUID", _playerUID];
 _player setVariable ["ExileDatabaseID", _data select 0];
@@ -74,16 +69,23 @@ _player setVariable ["ExileIsBambi", false];
 _player setVariable ["ExileXM8IsOnline", false, true];
 _player setOxygenRemaining (_data select 7);
 _player setBleedingRemaining (_data select 8);
+_player setVariable ["ExileLocker", (_data select 46), true];
 [_player, _data select 9] call ExileClient_util_player_applyHitPointMap;
 _devFriendlyMode = getNumber (configFile >> "CfgSettings" >> "ServerSettings" >> "devFriendyMode");
 if (_devFriendlyMode isEqualTo 1) then
 {
 	_devs = getArray (configFile >> "CfgSettings" >> "ServerSettings" >> "devs");
-	if (_playerUID in _devs) then
 	{
-		_player setVariable ["ExileMoney", 500000];
-		_player setVariable ["ExileScore", 100000];
-	};
+		if ((getPlayerUID _requestingPlayer) isEqualTo (_x select 0))exitWith
+		{
+			if((name _requestingPlayer) isEqualTo (_x select 1))then
+			{
+				_bambiPlayer setVariable ["ExileMoney", 500000, true];
+				_bambiPlayer setVariable ["ExileScore", 100000];
+			};
+		};
+	}
+	forEach _devs;
 };
 _player call ExileClient_util_playerCargo_clear;
 _headgear = _data select 23;
@@ -220,19 +222,22 @@ if !(_assignedItems isEqualTo []) then
 	forEach _assignedItems;
 };
 _player addMPEventHandler ["MPKilled", {_this call ExileServer_object_player_event_onMpKilled}];
+if (getNumber (configFile >> "CfgSettings" >> "VehicleSpawn" >> "thermalVision") isEqualTo 0) then
+{
+	_player addEventHandler ["WeaponAssembled", {(_this select 1) disableTIEquipment true;}];
+};
 [
 	_sessionID,
 	"loadPlayerResponse",
 	[
 		(netId _player),
-		str (_player getVariable ["ExileMoney", 0]),
 		str (_player getVariable ["ExileScore", 0]),
 		(_player getVariable ["ExileKills", 0]),
 		(_player getVariable ["ExileDeaths", 0]),
 		(_player getVariable ["ExileHunger", 100]),
 		(_player getVariable ["ExileThirst", 100]),
 		(_player getVariable ["ExileAlcohol", 0]),
-		(_player getVariable ["ExileClanName", ""]),
+		(_player getVariable ["ExileClanData", []]),
 		(_player getVariable ["ExileTemperature", 0]),
 		(_player getVariable ["ExileWetness", 0])
 	]
