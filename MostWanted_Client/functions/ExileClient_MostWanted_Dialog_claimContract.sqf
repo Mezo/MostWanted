@@ -8,6 +8,6 @@
 private["_data","_dataArray"];
 _data = lbData[1503,(lbCurSel 1503)];
 _dataArray = _data splitString ",";
-if (_data isEqualTo "") exitWith {["Whoops",["Select a contract to claim"]] call ExileClient_gui_notification_event_addNotification;};
+if (_data isEqualTo "") exitWith {["ErrorTitleAndText", ["Most Wanted", "Select a contract to claim"]] call ExileClient_gui_toaster_addTemplateToast;};
 ["claimContractRequest",[_dataArray select 1,parseNumber(_dataArray select 0)]] call ExileClient_system_network_send;
 ctrlEnable [2407,false];

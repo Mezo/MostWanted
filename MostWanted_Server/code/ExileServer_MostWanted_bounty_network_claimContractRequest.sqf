@@ -48,7 +48,7 @@ try
     _bountyAmount = parseNumber((_completedContracts select _index) select 2);
     _playersMoney = _playerObject getVariable ["ExileMoney",0];
     _newMoney = _playersMoney + _bountyAmount;
-    _playerObject setVariable ["ExileMoney",_newMoney];
+    _playerObject setVariable ["ExileMoney",_newMoney,true];
     format["setAccountMoney:%1:%2",_newMoney,getPlayerUID _playerObject] call ExileServer_system_database_query_fireAndForget;
     _completedContracts deleteAt _index;
     _playerObject setVariable ["ExileBountyCompletedContracts",_completedContracts];
@@ -59,13 +59,13 @@ try
     	[
     		(_playerObject getVariable ["ExileBountyCompletedContracts",""]),
             _bountyName,
-            str(_bountyAmount),
-            str(_newMoney)
-    	]
+            str(_bountyAmount)
+        ]
     ]
     call ExileServer_system_network_send_to;
 }
 catch
 {
+    [_sessionID, "toastRequest", ["ErrorTitleAndText", ["Most Wanted", _exception]]] call ExileServer_system_network_send_to;
     _exception call ExileServer_MostWanted_util_log;
 };

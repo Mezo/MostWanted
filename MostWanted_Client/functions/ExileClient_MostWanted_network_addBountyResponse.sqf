@@ -8,11 +8,10 @@
 private["_money","_respect","_moneyCost","_respectCost","_display"];
 _money = parseNumber(_this select 0);
 _respect = parseNumber(_this select 1);
-_moneyCost = _money - ExileClientPlayerMoney;
+_moneyCost = _money - (player getVariable ["ExileMoney",0]);
 _respectCost = _respect - ExileClientPlayerScore;
-ExileClientPlayerMoney = _money;
 ExileClientPlayerScore = _respect;
-["Success",[format["Bounty successfully set! -%1 poptabs -%2 respect",_moneyCost,_respectCost]]] call ExileClient_gui_notification_event_addNotification;
+["SuccessTitleAndText", ["Bounty successfully set!", format["-%1 poptabs -%2 respect",_moneyCost,_respectCost]]] call ExileClient_gui_toaster_addTemplateToast;
 _display = uiNameSpace getVariable ["MostWantedDialog",displayNull];
 if !(isNull _display) then
 {

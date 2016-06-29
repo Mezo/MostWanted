@@ -5,7 +5,7 @@
 *  This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
 *  To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
 */
-private["_display","_playerlist","_pricelist","_victimNetID","_value","_price","_respectdivisor","_reason"];
+private["_display","_playerlist","_pricelist","_victimNetID","_value","_price","_respectdivisor","_reason","_playermoney"];
 disableSerialization;
 _display = uiNameSpace getVariable ["MostWantedDialog", displayNull];
 _playerlist = (_display displayCtrl 1500);
@@ -16,6 +16,7 @@ _value = _value splitString ":";
 _price = (_value select 0);
 _respectdivisor = (_value select 1);
 _reason = "N/A";
+_playermoney = player getVariable ["ExileMoney", 0];
 try
 {
     if (_victimNetID isEqualTo "") then
@@ -30,7 +31,7 @@ try
     {
         throw "Split String Fucked Up";
     };
-    if (parseNumber(_price) > ExileClientPlayerMoney) then
+    if (parseNumber(_price) > _playermoney) then
     {
         throw "You Can't Afford That Bounty";
     };
@@ -40,5 +41,5 @@ try
 }
 catch
 {
-    ["Whoops",[_exception]] call ExileClient_gui_notification_event_addNotification;
+    ["ErrorTitleAndText", ["Most Wanted", _exception]] call ExileClient_gui_toaster_addTemplateToast;
 };

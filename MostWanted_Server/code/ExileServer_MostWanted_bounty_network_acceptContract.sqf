@@ -49,11 +49,11 @@ try
     };
     _playerObject setVariable ["ExileBountyContract",_infoArray,true];
     format["updateContract:%1:%2",_infoArray,getPlayerUID _playerObject] call ExileServer_system_database_query_fireAndForget;
-    [_sessionID,"notificationRequest",["Success", ["You have successfully accepted a contract"]]] call ExileServer_system_network_send_to;
+    [_sessionID, "toastRequest", ["SuccessTitleAndText", ["Most Wanted", "You have successfully accepted a contract"]]] call ExileServer_system_network_send_to;
 }
 catch
 {
-    [_sessionID,"notificationRequest", ["Whoops", [_exception]]] call ExileServer_system_network_send_to;
+    [_sessionID, "toastRequest", ["ErrorTitleAndText", ["Most Wanted", _exception]]] call ExileServer_system_network_send_to;
     _exception call ExileServer_MostWanted_util_log;
 };
 true
