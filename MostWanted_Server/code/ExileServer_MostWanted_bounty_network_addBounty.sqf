@@ -70,7 +70,8 @@ try
     };
     _clientObject setVariable ["ExileMoney", _newClientMoney];
     _clientObject setVariable ["ExileScore",_newClientRespect];
-    format["setAccountMoneyAndRespect:%1:%2:%3", _newClientMoney, _newClientRespect, (getPlayerUID _clientObject)] call ExileServer_system_database_query_fireAndForget;
+    format["setPlayerMoney:%1:%2", _newClientMoney, (getPlayerUID _clientObject)] call ExileServer_system_database_query_fireAndForget;
+    format["setAccountScore:%1:%2", _newClientRespect, (getPlayerUID _clientObject)] call ExileServer_system_database_query_fireAndForget;
     _moneyAmount = _moneyAmount - (_moneyAmount * 0.1);
     _newBounty = [_reason,_moneyAmount,name _clientObject,getPlayerUID _clientObject];
     format ["setBounty:%1:%2",_newBounty,getPlayerUID _victimObject] call ExileServer_system_database_query_fireAndForget;
