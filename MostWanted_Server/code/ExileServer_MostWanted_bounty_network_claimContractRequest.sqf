@@ -49,7 +49,7 @@ try
     _playersMoney = _playerObject getVariable ["ExileMoney",0];
     _newMoney = _playersMoney + _bountyAmount;
     _playerObject setVariable ["ExileMoney",_newMoney,true];
-    format["setPlayerMoney:%1:%2",_newMoney,getPlayerUID _playerObject] call ExileServer_system_database_query_fireAndForget;
+    format["setPlayerMoney:%1:%2",_newMoney,_playerObject getVariable ["ExileDatabaseID", 0]] call ExileServer_system_database_query_fireAndForget;
     _completedContracts deleteAt _index;
     _playerObject setVariable ["ExileBountyCompletedContracts",_completedContracts];
     format ["updateCompletedContracts:%1:%2",_completedContracts,getPlayerUID _playerObject] call ExileServer_system_database_query_fireAndForget;
