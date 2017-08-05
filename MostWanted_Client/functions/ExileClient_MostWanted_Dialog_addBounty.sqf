@@ -27,6 +27,10 @@ try
     {
         throw "Please Select The Worth Of The Bounty";
     };
+    if !(parseNumber(_price) isEqualType 0) then
+    {
+        throw "Please Select The Worth Of The Bounty";
+    };
     if (_respectdivisor isEqualTo "") then
     {
         throw "Split String Fucked Up";

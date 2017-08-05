@@ -48,6 +48,10 @@ try
     {
         throw "You already have a bounty set on someone!";
     };
+    if !(_moneyAmount isEqualType 0) then
+    {
+        throw "Please Select A Bounty Price";
+    };
     if (_moneyAmount < 0) then
     {
         throw "Requested amount cannot be less than zero!";
