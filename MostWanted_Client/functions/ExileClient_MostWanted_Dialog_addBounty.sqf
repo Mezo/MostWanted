@@ -14,7 +14,10 @@ _victimNetID = (lbData [1500, (lbCurSel 1500)]);
 _value = (lbData [2101, (lbCurSel 2101)]);
 _value = _value splitString ":";
 _price = (_value select 0);
-_respectdivisor = (_value select 1);
+if !(_price isEqualTo "") then
+{
+    _respectdivisor = (_value select 1);
+};
 _reason = "N/A";
 _playermoney = player getVariable ["ExileMoney", 0];
 try
