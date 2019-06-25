@@ -52,6 +52,14 @@ try
     {
         throw "Please Select A Bounty Price";
     };
+    if !(_moneyAmount) then
+    {
+        throw "Please Select A Bounty Price";
+    };
+    if !(_respectPercentage) then
+    {
+        throw "Please Select A Bounty Price";
+    };
     if (_moneyAmount < 0) then
     {
         throw "Requested amount cannot be less than zero!";
